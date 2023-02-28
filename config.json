@@ -1,8 +1,8 @@
 {
-  "prefix": "YOUR_BOT_PREFIX_HERE",
-  "token": "YOUR_BOT_TOKEN_HERE",
-  "permissions": "YOUR_BOT_PERMISSIONS_HERE",
-  "application_id": "YOUR_APPLICATION_ID_HERE",
+  "prefix": "zing",
+  "token": "MTA4MDI0NzMwMDUzNTg5MDAwMQ.GHAFfB.88x0q0NR2dMakGPQMbkGYpf200M6ueMWZDH_gc",
+  "permissions": "276220161088",
+  "application_id": "1080247300535890001",
   "sync_commands_globally": false,
   "owners": [
     123456789,
