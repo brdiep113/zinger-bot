@@ -7,6 +7,7 @@ Version: 5.5.0
 """
 
 import os
+from typing import Dict
 
 import aiosqlite
 
@@ -154,6 +155,29 @@ async def get_warnings(user_id: int, server_id: int) -> list:
         async with rows as cursor:
             result = await cursor.fetchall()
             result_list = []
+            for row in result:
+                result_list.append(row)
+            return result_list
+
+
+async def get_leaderboard(server_id: int) -> Dict[str, int]:
+    """
+    Return a leaderboard of all registered users.
+
+    :param server_id: The ID of the server that should be checked.
+    :return Dictionary of users to their scores
+    """
+
+    async with aiosqlite.connect(DATABASE_PATH) as db:
+        rows = await db.execute(
+            "SELECT user_id, score, server_id FROM leaderboard AND server_id=?",
+            (
+                server_id
+            ),
+        )
+        async with rows as cursor:
+            result = await cursor.fetchall()
+            result_list = {}
             for row in result:
                 result_list.append(row)
             return result_list
